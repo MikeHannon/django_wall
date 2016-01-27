@@ -1,4 +1,26 @@
 {% block main %}
-Hello I am a future wall
-{{user.username}}
+<form action = "{% url 'integrator:create_message' %}" method = "POST">
+    {% csrf_token %}
+    {{message_form.as_p}}
+<input type = "submit" value = "MAKE POST">
+</form>
+
+
+
+{% for message in messages %}
+{{message.message}}
+{% for comment in message.wall_comment_set.all %}
+{{comment.comment}}
+{% endfor %}
+
+<form action = "{% url 'integrator:create_comment' %}" method = "POST">
+  {% csrf_token %}
+{{comment_form.as_p}}
+<input type = "submit" value = "MAKE COMMENT">
+
+<input type = 'hidden' name = 'message' value = "{{message.id}}">
+<input type = "submit" value = "MAKE COMMENT">
+
+</form>
+{% endfor %}
 {% endblock main %}

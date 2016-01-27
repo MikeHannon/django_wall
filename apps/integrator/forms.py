@@ -37,6 +37,7 @@ class messageForm(forms.ModelForm):
         model = Wall_Message
         fields = ('message',)
 
+
 class commentForm(forms.ModelForm):
     class Meta:
         model = Wall_Comment
