@@ -34,7 +34,7 @@ class register(View):
             print ("*")*50
             print user
             print ("*")*50
-            #request.session['user'] ={'username':user['username'],}
+            #request.session['user'] = user
 
         else:
             context = {"registration_form":self.form()}
