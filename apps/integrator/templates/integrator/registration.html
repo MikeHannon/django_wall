@@ -1,0 +1,11 @@
+{% extends "integrator/base.html" %}
+{% block main %}
+<form action="{% url 'integrator:register' %}" method = "POST">
+<!-- basically tells you that the request is coming from where it suppose to come from -->
+  {% csrf_token %}
+  {{registration_form.as_p}}
+  <input type = 'submit' value = "Register">
+</form>
+{{block.super}}
+
+{% endblock %}
