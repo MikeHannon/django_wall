@@ -79,5 +79,4 @@ class create_message(View):
             wall = Wall.objects.get(user = request.user)
         print wall.id
         Wall_Message.objects.create(wall = wall, message = request.POST['message'], message_creator = request.user)
-
         return redirect('/the_wall')
